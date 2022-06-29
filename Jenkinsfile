@@ -19,6 +19,15 @@ stages {
                    snDevOpsChange()
               }
         }
+    
+    
+    stage('Post-Change-Step') {
+              steps {
+                   echo 'Post-Change Step'
+                   
+              }
+        }
+    
 }
    
 }
