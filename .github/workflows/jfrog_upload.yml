@@ -25,7 +25,9 @@ jobs:
           
       - name: Set up JFrog CLI
         run: |
-          $(pwd)/jfrog config add --url https://devopsidc2.jfrog.io --user devops --password DevOps1!
+          # Use the new syntax with "jfrog config add" and "--artifactory-url"
+          $(pwd)/jfrog config add 1 --artifactory-url=https://devopsidc2.jfrog.io --user devops --password DevOps1!
+          # $(pwd)/jfrog config add --url https://devopsidc2.jfrog.io --user devops --password DevOps1!
 
       - name: Clear JFrog Cache
         run: |
