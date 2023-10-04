@@ -49,4 +49,4 @@ jobs:
           $(pwd)/jfrog rt u "${file_to_upload}" "${artifactory_repo}/"
 
           # Publish the build information
-          $(pwd)/jfrog rt bp-publish "jfrog_upload" 1
+          # $(pwd)/jfrog rt bp-publish "jfrog_upload" 1
