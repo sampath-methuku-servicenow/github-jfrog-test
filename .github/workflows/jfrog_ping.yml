@@ -1,0 +1,25 @@
+name: JFrog CLI Ping
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  jfrog_ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v3
+        with:
+          url: ${{ secrets.JF_URL }}
+          username: ${{ secrets.JF_USER }}
+          password: ${{ secrets.JF_PASSWORD }}
+
+      - name: Run JFrog CLI Ping
+        run: |
+          jfrog rt ping
