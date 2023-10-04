@@ -11,7 +11,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: /tmp/
+        working-directory: "/home/runner/work/jenkins-test/jenkins-test"
 
     steps:
       - name: Checkout code
