@@ -31,12 +31,10 @@ jobs:
         run: |
           $(pwd)/jfrog config add 1 --url https://devopsidc2.jfrog.io --user devops --password DevOps1!
 
-
-
-      # - name: Generate Build Info
-      #   run: |
-      #     # Generate build information
-      #     $(pwd)/jfrog rt bp "jfrog_upload" 1
+      - name: Generate Build Info
+        run: |
+          # Generate build information
+          $(pwd)/jfrog rt bp "jfrog_upload" 1
    
 
       - name: Upload Artifact and Publish Build Info
