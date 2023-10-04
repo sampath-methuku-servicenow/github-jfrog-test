@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install JFrog CLI
+        run: |
+          curl -fL https://getcli.jfrog.io | sh
+
       - name: Set up JFrog CLI
         run: |
           jfrog config add --url https://devopsidc2.jfrog.io --user devops --password DevOps1!
