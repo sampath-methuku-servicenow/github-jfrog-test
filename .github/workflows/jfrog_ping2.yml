@@ -1,0 +1,24 @@
+name: JFrog CLI Ping
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JFrog CLI
+      uses: jfrog/setup-jfrog-cli@v3
+      with:
+        jfrog_version: '1.48.0' # Replace with the desired JFrog CLI version
+      env:
+        JF_URL: "https://devopsidc2.jfrog.io"
+        JF_USER: "devops"
+        JF_PASSWORD: "DevOps1!"
+
+    - name: Run JFrog CLI Ping
+      run: |
+        jfrog rt ping
