@@ -39,15 +39,7 @@ jobs:
 
       - name: Upload Artifact and Publish Build Info
         run: |
-          # Replace 'path/to/your/file' with the actual path to your file in the repository
           file_to_upload="README.md"
-
-          # Replace 'your-artifactory-repo' with the name of your Artifactory repository
           artifactory_repo="local_repo"
-
-          # Upload the file to Artifactory and associate it with the build info
           $(pwd)/jfrog rt u "README.md" "local_repo" --url https://devopsidc2.jfrog.io 
-          $(pwd)/jfrog rt u "${file_to_upload}" "${artifactory_repo}" --url https://devopsidc2.jfrog.io 
 
-          # Publish the build information
-          # $(pwd)/jfrog rt bp-publish "jfrog_upload" 1
