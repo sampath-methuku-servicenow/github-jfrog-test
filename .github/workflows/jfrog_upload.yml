@@ -22,10 +22,14 @@ jobs:
           curl -fL https://getcli.jfrog.io | sh
           echo "$(pwd)/jfrog" >> $GITHUB_PATH
           export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
-
+          
       - name: Set up JFrog CLI
         run: |
           $(pwd)/jfrog config add --url https://devopsidc2.jfrog.io --user devops --password DevOps1!
+
+      - name: Clear JFrog Cache
+        run: |
+          $(pwd)/jfrog rt c clear
 
       - name: Generate Build Info
         run: |
