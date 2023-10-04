@@ -35,7 +35,7 @@ jobs:
         run: |
           # Generate build information
           $(pwd)/jfrog rt bp "jfrog_upload" 1
-        id: build_info
+   
 
       - name: Upload Artifact and Publish Build Info
         run: |
