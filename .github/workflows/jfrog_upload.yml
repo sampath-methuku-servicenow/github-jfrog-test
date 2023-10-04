@@ -9,6 +9,10 @@ jobs:
   upload_to_jfrog:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: /tmp/
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -21,7 +25,7 @@ jobs:
       - name: Set up JFrog CLI
         run: |
           $(pwd)/jfrog config add --url https://devopsidc2.jfrog.io --user devops --password DevOps1!
-          
+
       - name: Generate Build Info
         run: |
           # Generate build information
@@ -32,12 +36,12 @@ jobs:
         run: |
           # Replace 'path/to/your/file' with the actual path to your file in the repository
           file_to_upload="blank.yml"
-          
+
           # Replace 'your-artifactory-repo' with the name of your Artifactory repository
           artifactory_repo="local-repo"
-          
+
           # Upload the file to Artifactory and associate it with the build info
-          $(pwd)/jfrog rt u "${file_to_upload}" "${artifactory-repo}/"
-          
+          $(pwd)/jfrog rt u "${file_to_upload}" "${artifactory_repo}/"
+
           # Publish the build information
           $(pwd)/jfrog rt bp-publish "jfrog_upload" 1
