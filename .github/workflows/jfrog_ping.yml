@@ -17,6 +17,8 @@ jobs:
         run: |
           curl -fL https://getcli.jfrog.io | sh
           echo "$HOME/.jfrog/cli/jfrog" >> $GITHUB_PATH
+          echo "$HOME/.jfrog/cli/jfrog"
+          echo "GITHUB PATH===$GITHUB_PATH"
 
       - name: Set up JFrog CLI
         run: |
