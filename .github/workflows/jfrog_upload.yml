@@ -40,7 +40,7 @@ jobs:
       - name: Upload Artifact and Publish Build Info
         run: |
           # Replace 'path/to/your/file' with the actual path to your file in the repository
-          file_to_upload="*"
+          file_to_upload=".github/workflows/blank.yml"
 
           # Replace 'your-artifactory-repo' with the name of your Artifactory repository
           artifactory_repo="local-repo"
