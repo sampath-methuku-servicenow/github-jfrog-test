@@ -16,7 +16,7 @@ jobs:
       - name: Install JFrog CLI
         run: |
           curl -fL https://getcli.jfrog.io | sh
-          echo "::add-path::$(pwd)/jfrog"
+          echo "$(pwd)/jfrog" >> $GITHUB_PATH
 
       - name: Set up JFrog CLI
         run: |
