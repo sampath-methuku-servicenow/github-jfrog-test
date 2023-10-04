@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      JF_URL: ${{ env.JFROG_URL }}
-      JF_USER: ${{ env.JFROG_USER_NAME }}
-      JF_PASSWORD: ${{ env.JFROG_PASSWORD }}
+      JF_URL: ${{ secrets.JFROG_URL }}
+      JF_USER: ${{ secrets.JFROG_USER_NAME }}
+      JF_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
 
     steps:
       - name: Checkout code
