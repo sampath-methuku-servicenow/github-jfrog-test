@@ -9,22 +9,11 @@ jobs:
   jfrog_ping:
     runs-on: ubuntu-latest
 
-    env:
-      JF_URL: ${{ secrets.JFROG_URL }}
-      JF_USER: ${{ secrets.JFROG_USER_NAME }}
-      JF_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up JFrog CLI
-        uses: jfrog/setup-jfrog-cli@v3
-        with:
-          url: ${{ env.JF_URL }}
-          username: ${{ env.JF_USER }}
-          password: ${{ env.JF_PASSWORD }}
-
-      - name: Run JFrog CLI Ping
         run: |
+          jfrog config add --url https://devopsidc2.jfrog.io --user devops --password DevOps1!
           jfrog rt ping
