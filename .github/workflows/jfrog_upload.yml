@@ -34,7 +34,7 @@ jobs:
       - name: Generate Build Info
         run: |
           # Generate build information
-          $(pwd)/jfrog rt bp "jfrog_upload" 1 --url https://devopsidc2.jfrog.io
+          $(pwd)/jfrog rt bp "jfrog_upload" 1
         id: build_info
 
       - name: Upload Artifact and Publish Build Info
