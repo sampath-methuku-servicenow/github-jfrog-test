@@ -41,5 +41,5 @@ jobs:
         run: |
           file_to_upload="README.md"
           artifactory_repo="local_repo"
-          $(pwd)/jfrog rt u "README.md" "local_repo" --url https://devopsidc2.jfrog.io 
+          $(pwd)/jfrog rt u "README.md" "local_repo"  
 
