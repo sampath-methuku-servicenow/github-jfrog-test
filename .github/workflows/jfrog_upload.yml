@@ -1,0 +1,43 @@
+name: Upload to JFrog Artifactory with Build Info
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload_to_jfrog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install JFrog CLI
+        run: |
+          curl -fL https://getcli.jfrog.io | sh
+          echo "$(pwd)/jfrog" >> $GITHUB_PATH
+
+      - name: Set up JFrog CLI
+        run: |
+          $(pwd)/jfrog config add --url https://devopsidc2.jfrog.io --user devops --password DevOps1!
+          
+      - name: Generate Build Info
+        run: |
+          # Generate build information
+          $(pwd)/jfrog rt bp "jfrog_upload" 1
+        id: build_info
+
+      - name: Upload Artifact and Publish Build Info
+        run: |
+          # Replace 'path/to/your/file' with the actual path to your file in the repository
+          file_to_upload="blank.yml"
+          
+          # Replace 'your-artifactory-repo' with the name of your Artifactory repository
+          artifactory_repo="local-repo"
+          
+          # Upload the file to Artifactory and associate it with the build info
+          $(pwd)/jfrog rt u "${file_to_upload}" "${artifactory-repo}/"
+          
+          # Publish the build information
+          $(pwd)/jfrog rt bp-publish "jfrog_upload" 1
