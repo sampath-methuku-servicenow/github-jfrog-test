@@ -13,7 +13,7 @@ jobs:
     - name: Set up JFrog CLI
       uses: jfrog/setup-jfrog-cli@v3
       with:
-        jfrog_version: '1.48.0' # Replace with the desired JFrog CLI version
+        version: '1.48.0' # Replace with the desired JFrog CLI version
       env:
         JF_URL: "https://devopsidc2.jfrog.io"
         JF_USER: "devops"
