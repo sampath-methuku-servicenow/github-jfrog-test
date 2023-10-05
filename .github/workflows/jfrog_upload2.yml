@@ -29,6 +29,6 @@ jobs:
       - name: Run JFrog CLI Ping
         run: |
           export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
-          jf rt ping
-        
-    
+          jf rt ping 
+          
+      
