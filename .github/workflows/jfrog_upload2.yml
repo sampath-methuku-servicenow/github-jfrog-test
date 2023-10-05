@@ -38,5 +38,7 @@ jobs:
           jf rt bag
           # Publish build info
           jf rt bp
+          echo "JFROG_URL=$JF_URL" >> $GITHUB_ENV
+          echo "ARTIFACT_PATH=$ARTIFACT_PATH" >> $GITHUB_ENV
           
       
