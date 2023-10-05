@@ -1,4 +1,4 @@
-name: UsingJfrogAction
+name: JFrogUploadArtifact2
 
 on:
   push:
