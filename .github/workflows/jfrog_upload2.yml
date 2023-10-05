@@ -43,6 +43,6 @@ jobs:
           echo "ARTIFACT_PATH=$ARTIFACT_PATH" >> $GITHUB_ENV
       - name: Use Custom Output
         run: |
-           echo "Custom data from previous step: ${{ JF_URL }}"
+           echo "Custom data from previous step: $JF_URL"
               
       
