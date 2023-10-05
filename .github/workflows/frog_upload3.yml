@@ -1,0 +1,53 @@
+name: UsingJfrogAction
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload_to_jfrog:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: "/home/runner/work/jenkins-test/jenkins-test"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v3
+        with:
+          version: latest
+        env:
+          JF_URL: "https://devopsidc2.jfrog.io"
+          JF_USER: "devops"
+          JF_PASSWORD: "DevOps1!"
+    
+      - name: Run JFrog CLI Ping
+        run: |
+          export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
+          jf rt ping 
+          jf --version
+          jf rt u "README.md" "local_repo"
+          # Collect environment variables for the build
+          jf rt bce
+          # Collect VCS details from git and add them to the build
+          jf rt bag
+          jf rt bp --dry-run  > jfrog_build_info.json
+          # Publish build info
+          jf rt bp
+          echo "JFROG_URL=$JF_URL" >> $GITHUB_ENV
+          echo "ARTIFACT_PATH=$ARTIFACT_PATH" >> $GITHUB_ENV
+      - name: Upload Build Info
+        uses: actions/upload-artifact@v2
+        with:
+          name: jrog-build-info
+          path: jfrog_build_info.json
+      - name: Use Custom Output
+        run: |
+           echo "Custom data from previous step: $JF_URL"
+              
+      
