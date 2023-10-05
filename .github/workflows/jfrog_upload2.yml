@@ -30,5 +30,12 @@ jobs:
         run: |
           export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
           jf rt ping 
+          jf --version
+          # Collect environment variables for the build
+          jf rt bce
+          # Collect VCS details from git and add them to the build
+          jf rt bag
+          # Publish build info
+          jf rt bp
           
       
