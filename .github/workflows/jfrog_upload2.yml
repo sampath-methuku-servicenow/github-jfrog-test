@@ -1,0 +1,39 @@
+name: Upload to JFrog Artifactory with Build Info
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload_to_jfrog:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: "/home/runner/work/jenkins-test/jenkins-test"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install JFrog CLI
+        run: |
+          curl -fL https://getcli.jfrog.io | sh
+          echo "$(pwd)/jfrog" >> $GITHUB_PATH
+          export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
+
+      - name: Clear JFrog Cache
+        run: |
+          $(pwd)/jfrog rt c clear
+          
+      - name: Set up JFrog CLI
+        run: |
+          $(pwd)/jfrog config add 1 --url https://devopsidc2.jfrog.io --user devops --password DevOps1!
+   
+      - name: Upload Artifact and Publish Build Info
+        run: |
+          file_to_upload="README.md"
+          artifactory_repo="local_repo"
+          $(pwd)/jfrog rt u "README.md" "local_repo" --build-name=jfrog_upload --build-number=10
+          $(pwd)/jfrog rt bp "jfrog_upload" 10
