@@ -36,13 +36,8 @@ jobs:
           jf rt bce
           # Collect VCS details from git and add them to the build
           jf rt bag
-          jf rt bp --dry-run
           # Publish build info
           jf rt bp
-          echo "JFROG_URL=$JF_URL" >> $GITHUB_ENV
-          echo "ARTIFACT_PATH=$ARTIFACT_PATH" >> $GITHUB_ENV
-      - name: Use Custom Output
-        run: |
-           echo "Custom data from previous step: $JF_URL"
+    
               
       
