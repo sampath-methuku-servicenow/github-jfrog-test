@@ -40,9 +40,8 @@ jobs:
           # Publish build info
           jf rt bp
       - name: Add Messages to Check Run Output
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
-          github-token: "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"
           script: |
             const { owner, repo } = context.repo; // Include 'github' in destructuring
       
