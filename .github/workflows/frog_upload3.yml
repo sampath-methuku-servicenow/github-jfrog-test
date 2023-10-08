@@ -69,7 +69,6 @@ jobs:
               repo,
               head_sha: context.sha,
               name: "testing",
-              check_run_id: checkRunId,
               output: currentOutput,
             });
       
