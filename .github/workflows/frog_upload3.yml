@@ -42,7 +42,7 @@ jobs:
       - name: Add Messages to Check Run Output
         uses: actions/github-script@v5
         with:
-          github-token: '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'
+          github-token: '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'
           script: |
             const { owner, repo } = context.repo;
             // Specify the check run's ID you want to update
