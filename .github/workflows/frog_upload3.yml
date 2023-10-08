@@ -58,6 +58,9 @@ jobs:
               summary: 'This is the summary of the check run.',
               text: messagesToAdd.join('\n\n'), // Combine messages with line breaks
             };
+            console.log('Check Run ID:', checkRunId);
+            console.log('Owner:', owner);
+            console.log('Repo:', repo);
 
             await github.checks.update({
               owner,
