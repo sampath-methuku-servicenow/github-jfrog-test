@@ -71,7 +71,7 @@ jobs:
               name: "testing",
               output: currentOutput,
               details_url: "CUSTOM_URL",
-              output: { "summary": "See test results at CUSTOM_URL" }
+              output: { "title":"testing","summary": "See test results at CUSTOM_URL" }
             });
       
       
