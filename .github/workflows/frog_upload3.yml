@@ -39,15 +39,36 @@ jobs:
           jf rt bp --dry-run  > jfrog_build_info.json
           # Publish build info
           jf rt bp
-          echo "JFROG_URL=$JF_URL" >> $GITHUB_ENV
-          echo "ARTIFACT_PATH=$ARTIFACT_PATH" >> $GITHUB_ENV
-      - name: Upload Build Info
-        uses: actions/upload-artifact@v2
+      - name: Add Messages to Check Run Output
+        uses: actions/github-script@v5
         with:
-          name: jrog-build-info
-          path: jfrog_build_info.json
-      - name: Use Custom Output
-        run: |
-           echo "Custom data from previous step: $JF_URL"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { context, github } = require('@actions/github');
+            const { owner, repo } = context.repo;
+
+            // Specify the check run's ID you want to update
+            const checkRunId = context.runId;
+
+            const messagesToAdd = [
+              "Message 1: This is the first message.",
+              "Message 2: This is the second message.",
+            ];
+
+            // Update the check run's output by adding messages
+            const currentOutput = {
+              title: 'My Check Run Output',
+              summary: 'This is the summary of the check run.',
+              text: messagesToAdd.join('\n\n'), // Combine messages with line breaks
+            };
+
+            await github.checks.update({
+              owner,
+              repo,
+              check_run_id: checkRunId,
+              output: currentOutput,
+            });
+
+
               
       
