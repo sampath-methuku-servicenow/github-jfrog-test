@@ -62,6 +62,7 @@ jobs:
             console.log('Check Run ID:', checkRunId);
             console.log('Owner:', owner);
             console.log('Repo:', repo);
+            console.log('GitHub Token:', github.token);
 
             await github.checks.update({
               owner,
