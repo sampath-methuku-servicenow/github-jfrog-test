@@ -64,7 +64,7 @@ jobs:
             console.log('Repo:', repo);
             console.log('GitHub Token:', github.token); // Access the token using 'github.token'
       
-            await github.rest.checks.update({
+            await github.rest.checks.create({
               owner,
               repo,
               check_run_id: checkRunId,
