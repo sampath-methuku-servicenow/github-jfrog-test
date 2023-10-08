@@ -44,7 +44,7 @@ jobs:
         with:
           github-token: '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'
           script: |
-            const { owner, repo, github } = context.repo; // Include 'github' in destructuring
+            const { owner, repo } = context.repo; // Include 'github' in destructuring
       
             // Specify the check run's ID you want to update
             const checkRunId = context.runId;
