@@ -70,8 +70,7 @@ jobs:
               head_sha: context.sha,
               name: "testing",
               output: currentOutput,
-              details_url: "CUSTOM_URL",
-              output: { "title":"testing","summary": "See test results at CUSTOM_URL" }
+              output: { "title":"testing","summary": "See test results at CUSTOM_URL" ,"text":"testing"}
             });
       
       
