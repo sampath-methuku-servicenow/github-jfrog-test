@@ -38,5 +38,6 @@ jobs:
           jf rt bag
           jf rt bp --dry-run 
           jf rt bp --dry-run  > jfrog_build_info.json
+          jf rt build-info 
           # Publish build info
           jf rt bp
