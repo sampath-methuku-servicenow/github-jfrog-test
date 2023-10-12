@@ -33,9 +33,9 @@ jobs:
           jf --version
           jf rt u "README.md" "local_repo"
           # Collect environment variables for the build
-          jf rt bce
+          #jf rt bce
           # Collect VCS details from git and add them to the build
-          jf rt bag
+          #jf rt bag
           jf rt bp --dry-run 
           jf rt bp --dry-run  > jfrog_build_info.json
           jf rt bce
