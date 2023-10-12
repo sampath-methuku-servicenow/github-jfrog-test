@@ -36,43 +36,7 @@ jobs:
           jf rt bce
           # Collect VCS details from git and add them to the build
           jf rt bag
+          jf rt bp --dry-run 
           jf rt bp --dry-run  > jfrog_build_info.json
           # Publish build info
           jf rt bp
-      - name: Add Messages to Check Run Output
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const { owner, repo } = context.repo; // Include 'github' in destructuring
-      
-            // Specify the check run's ID you want to update
-            const checkRunId = context.runId;
-      
-            const messagesToAdd = [
-              "Message 1: This is the first message.",
-              "Message 2: This is the second message.",
-            ];
-      
-            // Update the check run's output by adding messages
-            const currentOutput = {
-              title: 'My Check Run Output',
-              summary: 'This is the summary of the check run.',
-              text: messagesToAdd.join('\n\n'), // Combine messages with line breaks
-            };
-            console.log('Check Run ID:', checkRunId);
-            console.log('Owner:', owner);
-            console.log('Repo:', repo);
-            console.log('GitHub Token:', github.token); // Access the token using 'github.token'
-      
-            await github.rest.checks.create({
-              owner,
-              repo,
-              head_sha: context.sha,
-              name: "testing",
-              output: currentOutput,
-              output: { "title":"testing","summary": "See test results at CUSTOM_URL" ,"text":"testing"}
-            });
-      
-      
-                    
-            
