@@ -1,4 +1,4 @@
-name: JFrogUploadArtifact2
+name: JFrogUploadArtifact2 
 
 on:
   push:
