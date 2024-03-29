@@ -45,7 +45,7 @@ jobs:
   changeApproval:
     name: ServiceNow Change Approval
     needs: upload_to_jfrog
-    runs-on: ubutun-latest
+    runs-on: ubuntu-latest
 
     steps:     
       - name: ServiceNow Change Approval
@@ -69,7 +69,7 @@ jobs:
   deploy:
     name: Deploy
     needs: changeApproval
-    runs-on: ubutun-latest
+    runs-on: ubuntu-latest
 
     steps:     
       - name: Run Deployment Script
