@@ -25,15 +25,7 @@ jobs:
           JF_URL: "https://devopskiran002.jfrog.io/"
           JF_USER: "admin"
           JF_PASSWORD: "Testing1!"
-    
-      - name: Upload artifacts to jfrog
-        run: |
-          export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
-          jf rt ping 
-          jf --version
-          jf rt u "README.md" "local_repo"
-          # Publish build info
-          jf rt bp
+          
       - name: download artifacts to jfrog
         run: |
           export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
