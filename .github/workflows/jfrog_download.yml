@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  upload_to_jfrog:
+  download_from_jfrog:
     runs-on: ubuntu-latest
 
     defaults:
