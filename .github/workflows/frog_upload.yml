@@ -52,9 +52,9 @@ jobs:
         uses: ServiceNow/servicenow-devops-change@v3.1.0
         id: create
         with:
-          devops-integration-token: https://sampath11.service-now.com/
+          devops-integration-token: "QO2GVXOa2Fl0Uc9Dy9iP5joN0hEtd7HM"
           instance-url: "https://sampath11.service-now.com/"
-          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+          tool-id: "de9b8da04791ce104543cc99e16d43bb"
           context-github: ${{ toJSON(github) }}
           job-name: 'ServiceNow Change Approval'
           change-request: '{"setCloseCode":"true","attributes":{"short_description":"Automated Software Deployment","description":"Automated Software Deployment.","assignment_group":"a715cd759f2002002920bde8132e7018","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab; When the change is approved the implementation happens automated by the CICD pipeline within the change planned start and end time window.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
