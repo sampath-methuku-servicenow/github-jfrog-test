@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-env:
-  JFROG_URL: ${{ vars.JFROG_URL }}
-  JFROG_USER: ${{ vars.JFROG_USER }}
 jobs:
   upload_to_jfrog:
     runs-on: ubuntu-latest
@@ -24,15 +21,15 @@ jobs:
         with:
           version: latest
         env:
-          JF_URL: ${{ vars.JFROG_URL }}
-          JF_USER: ${{ vars.JFROG_USER }}
+          JF_URL: ${{ secrets.JFROG_URL }}
+          JF_USER: ${{ secrets.JFROG_USER }}
           JF_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
     
       - name: Upload Artifact to Jfrog
         run: |
           export JFROG_CLI_HOME="${{ github.workspace }}"
-          echo "JFROG URL=== ${{ vars.JFROG_URL }}"
-          echo "USERNMAE=${{ vars.JFROG_USER }}"
+          echo "JFROG URL=== ${{ secrets.JFROG_URL }}"
+          echo "USERNMAE=${{ secrets.JFROG_USER }}"
           #upload artifacts
           jf rt u "servicenow-app-devops.zip" "local_repo"
           # Publish build info
