@@ -26,12 +26,11 @@ jobs:
           JF_USER: "admin"
           JF_PASSWORD: "Testing1!"
           
-      - name: download artifacts to jfrog
+      - name: download artifacts from jfrog
         run: |
           export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
-          jf rt ping 
-          jf --version
-          jf rt dl "local_repo/README.md" ./
+          # download artifact from jfrog
+          jf rt dl "local_repo/servicenow-app-devops.zip" ./
           # Publish build info
           jf rt bp
 
