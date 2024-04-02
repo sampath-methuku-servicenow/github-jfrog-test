@@ -31,8 +31,8 @@ jobs:
       - name: Upload Artifact to Jfrog
         run: |
           export JFROG_CLI_HOME="${{ github.workspace }}"
-          echo "JFROG URL=== ${{ env.JFROG_URL }}"
-          echo "USERNMAE=${{ env.JFROG_USER }}"
+          echo "JFROG URL=== ${{ vars.JFROG_URL }}"
+          echo "USERNMAE=${{ vars.JFROG_USER }}"
           #upload artifacts
           jf rt u "servicenow-app-devops.zip" "local_repo"
           # Publish build info
