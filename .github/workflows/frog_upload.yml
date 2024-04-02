@@ -22,8 +22,8 @@ jobs:
         with:
           version: latest
         env:
-          JF_URL: ${{ vars.JFROG_URL }}
-          JF_USER: ${{ vars.JFROG_USER }}
+          JF_URL: ${{ env.JFROG_URL }}
+          JF_USER: ${{ env.JFROG_USER }}
           JF_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
     
       - name: Upload Artifact to Jfrog
