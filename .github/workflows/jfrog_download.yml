@@ -33,6 +33,7 @@ jobs:
           jf rt dl "local_repo/servicenow-app-devops.zip" ./
           # Publish build info
           jf rt bp
+          echo "Testing ==== ${{ env.GITHUB_WORKSPACE }}"
 
   changeApproval:
     name: ServiceNow Change Approval
