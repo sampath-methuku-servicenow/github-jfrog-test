@@ -13,12 +13,6 @@ jobs:
         working-directory: "${{ github.workspace }}"
 
     steps:
-      - name: Debug Secrets
-        run: |
-            echo "JFROG_URL: ${{ secrets.JFROG_URL }}"
-            echo "JFROG_USER: ${{ secrets.JFROG_USER }}"
-            echo "JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}"
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -34,8 +28,6 @@ jobs:
       - name: Upload Artifact to Jfrog
         run: |
           export JFROG_CLI_HOME="${{ github.workspace }}"
-          echo "JFROG URL=== ${{ secrets.JFROG_URL }}"
-          echo "USERNMAE=${{ secrets.JFROG_USER }}"
           #upload artifacts
           jf rt u "servicenow-app-devops.zip" "local_repo"
           # Publish build info
