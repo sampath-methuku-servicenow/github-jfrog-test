@@ -11,7 +11,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: "/home/runner/work/github-jfrog-test/github-jfrog-test"
+        working-directory: "${{ github.workspace }}"
 
     steps:
       - name: Checkout code
@@ -26,15 +26,13 @@ jobs:
           JF_USER: "admin"
           JF_PASSWORD: "Testing1!"
     
-      - name: Run JFrog CLI Ping
+      - name: Upload Artifact to Jfrog
         run: |
-          export JFROG_CLI_HOME="/home/runner/github-jfrog-test/github-jfrog-test"
+          export JFROG_CLI_HOME="${{ github.workspace }}"
           #upload artifacts
           jf rt u "servicenow-app-devops.zip" "local_repo"
           # Publish build info
           jf rt bp
-          echo "Testing ==== ${{ env.GITHUB_WORKSPACE }}"
-          echo "Testing 22 ${{ github.workspace }}"
 
   changeApproval:
     name: ServiceNow Change Approval
