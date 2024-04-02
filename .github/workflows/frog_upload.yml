@@ -13,6 +13,12 @@ jobs:
         working-directory: "${{ github.workspace }}"
 
     steps:
+      - name: Debug Secrets
+        run: |
+            echo "JFROG_URL: ${{ secrets.JFROG_URL }}"
+            echo "JFROG_USER: ${{ secrets.JFROG_USER }}"
+            echo "JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}"
+
       - name: Checkout code
         uses: actions/checkout@v2
 
