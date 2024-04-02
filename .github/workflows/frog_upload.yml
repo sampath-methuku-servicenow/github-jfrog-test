@@ -11,7 +11,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: "/home/runner/work/jenkins-test/jenkins-test"
+        working-directory: "/home/runner/work/github-jfrog-test/github-jfrog-test"
 
     steps:
       - name: Checkout code
@@ -28,17 +28,9 @@ jobs:
     
       - name: Run JFrog CLI Ping
         run: |
-          export JFROG_CLI_HOME="/home/runner/work/jenkins-test/jenkins-test"
-          jf rt ping 
-          jf --version
-          jf rt u "README.md" "local_repo"
-          # Collect environment variables for the build
-          #jf rt bce
-          # Collect VCS details from git and add them to the build
-          #jf rt bag
-          jf rt bp --dry-run 
-          jf rt bp --dry-run  > jfrog_build_info.json
-          jf rt bce
+          export JFROG_CLI_HOME="/home/runner/github-jfrog-test/github-jfrog-test"
+          #upload artifacts
+          jf rt u "servicenow-app-devops.zip" "local_repo"
           # Publish build info
           jf rt bp
 
