@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - main
-
+env:
+  JFROG_URL: ${{ vars.JFROG_URL }}
+  JFROG_USER: ${{ vars.JFROG_USER }}
 jobs:
   upload_to_jfrog:
     runs-on: ubuntu-latest
