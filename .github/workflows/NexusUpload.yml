@@ -26,4 +26,4 @@ jobs:
         coordinates: groupId=com.example artifactId=app version=1.0.0
         assets: extension=jar
         filename: servicenow-app-devops.jar
-        tagname: GithubTestingTag
+        tagname: GithubTestingTag1
