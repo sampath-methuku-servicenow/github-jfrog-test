@@ -23,7 +23,7 @@ jobs:
         password: admin
         format: maven2
         repository: maven-releases
-        coordinates: groupId=com.example artifactId=app version=1.0.0
+        coordinates: groupId=com.example artifactId=servicenow-app-devops version=1.0.0
         assets: extension=jar
         filename: servicenow-app-devops.jar
         tagname: GithubTestingTag1
