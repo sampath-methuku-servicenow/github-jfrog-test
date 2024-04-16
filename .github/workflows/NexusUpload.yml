@@ -26,4 +26,5 @@ jobs:
         coordinates: groupId=com.example artifactId=servicenow-app-devops version=1.0.0
         assets: extension=jar
         filename: servicenow-app-devops.jar
-        tagname: GithubTestingTag1
+        tagname: "${{ github.repository_owner }}_${{ github.workflow }}_${{ github.run_id }}_${{ github.run_number }}_${{ job.name }}"
+    
