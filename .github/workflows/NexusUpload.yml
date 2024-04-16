@@ -18,7 +18,7 @@ jobs:
     - name: Nexus Repo Publish
       uses: sampath-methuku-servicenow/nexus-repo-github-action@master
       with:
-        serverUrl: http://13.54.106.6:8081/
+        serverUrl: 'http://13.54.106.6:8081/'
         username: admin
         password: admin
         format: maven2
@@ -26,4 +26,4 @@ jobs:
         coordinates: groupId=com.example artifactId=app version=1.0.0
         assets: extension=jar
         filename: servicenow-app-devops.jar
-        tagName: GithubTestingTag
+        tagname: GithubTestingTag
