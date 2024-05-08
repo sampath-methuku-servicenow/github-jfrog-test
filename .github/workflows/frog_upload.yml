@@ -10,7 +10,7 @@ jobs:
 
     defaults:
       run:  
-        working-directory: "${{ github.workspace }}/.jfrog"
+        working-directory: "${{ github.workspace }}"
 
     steps:
       - name: Checkout code
@@ -27,9 +27,7 @@ jobs:
     
       - name: Upload Artifact to Jfrog
         run: |
-          mkdir -p .jfrog
-          export JFROG_CLI_HOME="${{ github.workspace }}/.jfrog"
-          #export JFROG_CLI_HOME="${{ github.workspace }}"
+          export JFROG_CLI_HOME="${{ github.workspace }}"
           #upload artifacts
           jf rt u "servicenow-app-devops.zip" "local_repo"
           # Publish build info
