@@ -27,7 +27,9 @@ jobs:
     
       - name: Upload Artifact to Jfrog
         run: |
-          export JFROG_CLI_HOME="${{ github.workspace }}"
+          mkdir -p .jfrog
+          export JFROG_CLI_HOME="${{ github.workspace }}/.jfrog"
+          #export JFROG_CLI_HOME="${{ github.workspace }}"
           #upload artifacts
           jf rt u "servicenow-app-devops.zip" "local_repo"
           # Publish build info
