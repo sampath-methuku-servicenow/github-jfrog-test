@@ -29,7 +29,7 @@ jobs:
         run: |
           export JFROG_CLI_HOME="${{ github.workspace }}"
           #upload artifacts
-          jf rt u "servicenow-app-devops.zip" "local_repo"
+          jf rt u "servicenow-app-devops.zip" "local_repo/com/devops/servicenow/"
           # Publish build info
           jf rt bp
 
