@@ -21,9 +21,9 @@ jobs:
         with:
           version: latest
         env:
-          JF_URL: ${{ secrets.JFROG_URL }}
-          JF_USER: ${{ secrets.JFROG_USER }}
-          JF_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
+          JF_URL: "https://sampathdevops2.jfrog.io/"
+          JF_USER: "devops"
+          JF_PASSWORD: "DevOps11"
     
       - name: Upload Artifact to Jfrog
         run: |
