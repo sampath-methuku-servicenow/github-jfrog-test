@@ -31,7 +31,7 @@ jobs:
           #upload artifacts
           jf rt u "servicenow-app-devops.zip" "local_repo"
           # Publish build info
-          #jf rt bp
+          jf rt bp
 
   changeApproval:
     name: ServiceNow Change Approval
