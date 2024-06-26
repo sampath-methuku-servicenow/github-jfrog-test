@@ -22,15 +22,15 @@ jobs:
         with:
           version: latest
         env:
-          JF_URL: ${{ secrets.JFROG_URL }}
-          JF_USER: ${{ secrets.JFROG_USER }}
-          JF_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
+          JF_URL: "https://sampathdevops002.jfrog.io/"
+          JF_USER: "admin"
+          JF_PASSWORD: "DevOps11"
           
       - name: download artifacts from jfrog
         run: |
           export JFROG_CLI_HOME="${{ github.workspace }}"
           # download artifact from jfrog
-          jf rt dl "local_repo/servicenow-app-devops.zip" ./
+          jf rt dl "github_repo/com/devops/servicenow/servicenow-app-devops.zip" ./
           # Publish build info
           jf rt bp
 
