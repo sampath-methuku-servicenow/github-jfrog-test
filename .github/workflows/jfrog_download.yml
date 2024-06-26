@@ -1,4 +1,4 @@
-name: JFrogDownloadArtifact
+name: GitHubJFrogDownloadArtifact
 
 on:
   push:
