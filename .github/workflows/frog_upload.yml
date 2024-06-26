@@ -34,7 +34,7 @@ jobs:
           jf rt bp
           
       - name: wait-job
-        run: sleep 180s
+        run: sleep 20s
         shell: bash
 
 
